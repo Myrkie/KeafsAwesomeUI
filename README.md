@@ -18,3 +18,4 @@ More Features to come soon
  ```cs
  KeafUI.toastcontent.Add(tc.CopyWithNewContent("Hi"));
  ```
+[Preview](https://nx19938.your-storageshare.de/s/EgtJfqzJLt6j8zM)
