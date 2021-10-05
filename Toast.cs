@@ -37,8 +37,7 @@ namespace KeafsAwesomeUI
             Msg = Message.GetComponent<Text>();
             Msg.alignment = TextAnchor.MiddleCenter;
             MelonCoroutines.Start(LoopDeLoopCheck());
-            KeafUI.toastcontent.Add(new ToastContent
-                {Title = "Keaf's Awesome UI Helper", Content = "Finished initializing Ui"});
+            
         }
 
         private static IEnumerator LoopDeLoopCheck()
