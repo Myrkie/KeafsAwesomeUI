@@ -12,7 +12,7 @@ More Features to come soon
  ```
  4. In start have
  ```cs
- tc = new ToastContent { Title = "Depression :'(" };
+ tc = new ToastContent { Title = "EPik MOD" };
  ```
  5. when you want to add to toast call this
  ```cs
