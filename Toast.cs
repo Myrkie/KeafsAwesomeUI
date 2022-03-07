@@ -16,24 +16,19 @@ namespace KeafsAwesomeUI
 
         internal static void SetUp()
         {
-            GameObject ToastBoi = Object.Instantiate(
-                GameObject.Find("/UserInterface/MenuContent/Screens/Settings/MousePanel"),
-                GameObject.Find("/UserInterface/UnscaledUI/HudContent/Hud").transform);
+            GameObject ToastBoi = Object.Instantiate(AssetManager._toastyboi, GameObject.Find("/UserInterface/UnscaledUI/HudContent").transform);
             ToastBoi.name = "ToastBoi";
-            ToastBoi.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -804);
-            Object.Destroy(ToastBoi.transform.Find("SensitivitySlider").gameObject);
-            Object.Destroy(ToastBoi.transform.Find("InvertedMouse").gameObject);
+            ToastBoi.SetLayerRecursive(19);
+            ToastBoi.GetComponent<RectTransform>().anchoredPosition = new Vector3(1.6393f, -427.0597f, 0);
 
             leCanvasGroup = ToastBoi.AddComponent<CanvasGroup>();
             leCanvasGroup.alpha = 0f;
 
-            TitleText = ToastBoi.transform.Find("TitleText").GetComponent<Text>();
+            TitleText = ToastBoi.transform.Find("ToastUITitle").GetComponent<Text>();
             TitleText.alignment = TextAnchor.MiddleCenter;
 
-            GameObject Message = ToastBoi.transform.Find("MouseSensitivityText").gameObject;
+            GameObject Message = ToastBoi.transform.Find("ToastText").gameObject;
             Message.name = "Message";
-            Message.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -32);
-            Message.GetComponent<RectTransform>().sizeDelta = new Vector2(430, 100);
             Msg = Message.GetComponent<Text>();
             Msg.alignment = TextAnchor.MiddleCenter;
             MelonCoroutines.Start(LoopDeLoopCheck());

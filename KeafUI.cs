@@ -1,7 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using MelonLoader;
 using UnityEngine;
+using UnityEngine.UI;
+using VRC.UI.Core;
+using Object = UnityEngine.Object;
 
 namespace KeafsAwesomeUI
 {
@@ -12,13 +16,19 @@ namespace KeafsAwesomeUI
 
         public override void OnApplicationStart()
         {
-            MelonCoroutines.Start(WaitForLocalPlayer());
+            AssetManager.LoadAssetBundle();
         }
-        private IEnumerator WaitForLocalPlayer()
+        private int _scenesLoaded;
+        public override void OnSceneWasLoaded(int level, string name)
         {
-            while (VRCPlayer.field_Internal_Static_VRCPlayer_0 == null)
-                yield return null;
-            Toast.SetUp();
+            if (_scenesLoaded <= 2)
+            {
+                _scenesLoaded++;
+                if (_scenesLoaded == 2)
+                {
+                    Toast.SetUp();
+                }
+            }
         }
     }
 }
